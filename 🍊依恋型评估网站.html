@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0290)https://static.coze.site/7626697924252008744-data_volume/files/%E6%89%80%E6%9C%89%E5%AF%B9%E8%AF%9D/%E4%B8%BB%E5%AF%B9%E8%AF%9D/%E4%BE%9D%E6%81%8B%E5%9E%8B%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95.html?sign=1779196484-bb0de7b841-0-6d97c4cacc40f71f9c083515bd531da3e9e2bf04f82512c977bb1afa21919deb -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍊依恋型评估网站</title>
+    <meta name="description" content="基于ECR-R量表改编的依恋风格评估问卷，专业评估您在亲密关系中的依恋模式。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .welcome-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .welcome-title {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .welcome-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.8;
+            max-width: 480px;
+        }
+
+        .disclaimer-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #666;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            text-align: left;
+            max-width: 480px;
+            width: 100%;
+        }
+
+        .disclaimer-box h3 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .disclaimer-box p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .age-notice {
+            background: #f5f5f5;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .birthdate-section {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 32px;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .birthdate-label {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .birthdate-inputs {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .birthdate-inputs select {
+            flex: 1;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            color: #333;
+            background: #fff;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+        }
+
+        .birthdate-inputs select:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .agreement-section {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .agreement-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .agreement-checkbox input {
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #333;
+        }
+
+        .agreement-checkbox label {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .agreement-checkbox a {
+            color: #333;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .start-btn {
+            width: 100%;
+            padding: 16px;
+            background: #ccc;
+            color: #666;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: not-allowed;
+            transition: all 0.2s;
+        }
+
+        .start-btn.active {
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .start-btn.active:hover {
+            background: #1a1a1a;
+        }
+
+        .privacy-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            max-width: 520px;
+            width: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 18px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-body h3 {
+            font-size: 15px;
+            color: #333;
+            margin: 20px 0 12px;
+            font-weight: 600;
+        }
+
+        .modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body p, .modal-body li {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid #eee;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 14px;
+            background: #333;
+            color: #fff;
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .test-screen {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+        }
+
+        .progress-bar {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-text {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .progress-number {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .progress-track {
+            height: 4px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #333;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-number {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+
+        .question-text {
+            font-size: 20px;
+            color: #1a1a1a;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .options-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .option-btn {
+            padding: 18px 20px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            font-size: 15px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: -1px;
+        }
+
+        .option-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .option-btn.selected {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        .option-radio {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+
+        .option-btn.selected .option-radio {
+            border-color: #fff;
+            background: #fff;
+        }
+
+        .option-btn.selected .option-radio::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .option-text {
+            line-height: 1.5;
+        }
+
+        .option-score {
+            margin-left: auto;
+            font-size: 13px;
+            color: #999;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .option-btn.selected .option-score {
+            color: #ccc;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 16px;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .nav-btn.prev {
+            color: #666;
+        }
+
+        .nav-btn.next {
+            background: #333;
+            color: #fff;
+            border-color: #333;
+        }
+
+        .nav-btn.next:disabled {
+            background: #eee;
+            color: #999;
+            border-color: #eee;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.submit {
+            background: #333;
+        }
+
+        .result-screen {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+        }
+
+        .result-header {
+            text-align: center;
+            padding: 32px 20px;
+        }
+
+        .result-title {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .result-subtitle {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .result-disclaimer {
+            background: #f8f8f8;
+            border: 1px solid #e5e5e5;
+            border-left: 4px solid #999;
+            padding: 16px 20px;
+            margin: 0 20px 24px;
+            text-align: left;
+        }
+
+        .result-disclaimer h4 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .result-disclaimer p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .result-main-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .main-type {
+            text-align: center;
+            padding: 24px;
+            background: #fafafa;
+            margin-bottom: 24px;
+        }
+
+        .main-type-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-type-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-type-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .main-type-percent {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .type-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .professional-advice {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .professional-advice h3 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .professional-advice p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .professional-advice .hotline {
+            background: #f5f5f5;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .chart-section {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .radar-chart-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 24px;
+            aspect-ratio: 1;
+            padding: 20px;
+        }
+
+        #radarChart {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .bar-label {
+            width: 64px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 24px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            transition: width 0.8s ease;
+        }
+
+        .bar-fill.secure { background: #8B9DC3; }
+        .bar-fill.anxious { background: #D4A5A5; }
+        .bar-fill.avoidant { background: #A8B5C4; }
+        .bar-fill.fearful { background: #B8C9C9; }
+
+        .bar-value {
+            width: 50px;
+            font-size: 13px;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        /* 四种类型图标小图标 */
+        .type-icon-small {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .type-icon-small svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bar-label-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .bar-label {
+            width: auto;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .dimension-analysis {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .dimension-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dimension-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .dimension-item:first-child {
+            padding-top: 0;
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .dimension-name {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dimension-level {
+            font-size: 12px;
+            padding: 4px 12px;
+            font-weight: 500;
+        }
+
+        .level-low {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .level-high {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .dimension-bar {
+            height: 6px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .dimension-fill {
+            height: 100%;
+            transition: width 0.8s ease;
+        }
+
+        .dimension-fill.anxiety {
+            background: #333;
+        }
+
+        .dimension-fill.avoidance {
+            background: #666;
+        }
+
+        .dimension-desc {
+            font-size: 14px;
+            color: #666;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .suggestion-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .suggestion-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .suggestion-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggestion-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .suggestion-list li:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-list li::before {
+            content: '—';
+            margin-right: 10px;
+            color: #999;
+        }
+
+        .restart-btn {
+            width: 100%;
+            padding: 16px;
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            margin-bottom: 16px;
+        }
+
+        .restart-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(26, 26, 26, 0.9);
+            color: #fff;
+            padding: 14px 28px;
+            font-size: 14px;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 24px 16px;
+            }
+
+            .welcome-title {
+                font-size: 26px;
+            }
+
+            .question-text {
+                font-size: 18px;
+            }
+
+            .option-btn {
+                padding: 16px;
+                font-size: 14px;
+            }
+
+            .main-type-name {
+                font-size: 24px;
+            }
+
+            .main-type-icon {
+                width: 64px;
+                height: 64px;
+            }
+
+            .type-icon-small {
+                width: 20px;
+                height: 20px;
+            }
+
+            .bar-label {
+                font-size: 13px;
+            }
+
+            .bar-label-wrapper {
+                gap: 6px;
+            }
+        }
+
+        /* 捐赠卡片 */
+        .donate-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .donate-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .donate-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .donate-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 16px;
+        }
+
+        .donate-method {
+            text-align: center;
+        }
+
+        .donate-method span {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .donate-qrcode {
+            width: 140px;
+            height: 140px;
+            background: #f5f5f5;
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donate-note {
+            font-size: 13px;
+            color: #999;
+            margin-top: 12px;
+        }
+
+        /* 献词卡片 */
+        .dedication-card {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+            border: 1px solid #ffe4c4;
+            padding: 32px 24px;
+            margin-bottom: 24px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .dedication-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 2;
+            font-style: italic;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer-note .footer-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .footer-note .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+        }
+    
+/* 图片放大模态框 */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 首页 -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <h1 class="welcome-title">🍊依恋类型评估</h1>
+            <p class="welcome-subtitle">
+                基于ECR-R量表改编的专业依恋风格评估问卷，用于评估您在亲密关系中的依恋模式。
+            </p>
+            
+            <div class="disclaimer-box">
+                <h3>⚠️ 重要免责声明</h3>
+                <p>本测试仅供参考，不作为专业诊断依据。测试结果不能替代专业心理咨询或医学评估。</p>
+                <p style="margin-top: 8px;">如果您正在经历严重的心理困扰、人际关系问题或情感创伤，建议寻求专业心理咨询师的帮助。</p>
+                <div class="age-notice">
+                    <strong>年龄建议：</strong>本测试建议18岁以上成年人参与。未成年人请在监护人陪同下进行。
+                </div>
+            </div>
+            
+            <div class="birthdate-section">
+                <label class="birthdate-label">请输入您的出生日期</label>
+                <div class="birthdate-inputs">
+                    <select id="year">
+                        <option value="">年</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                        <option value="1989">1989</option>
+                        <option value="1988">1988</option>
+                        <option value="1987">1987</option>
+                        <option value="1986">1986</option>
+                        <option value="1985">1985</option>
+                        <option value="1984">1984</option>
+                        <option value="1983">1983</option>
+                        <option value="1982">1982</option>
+                        <option value="1981">1981</option>
+                        <option value="1980">1980</option>
+                        <option value="1979">1979</option>
+                        <option value="1978">1978</option>
+                        <option value="1977">1977</option>
+                        <option value="1976">1976</option>
+                        <option value="1975">1975</option>
+                        <option value="1974">1974</option>
+                        <option value="1973">1973</option>
+                        <option value="1972">1972</option>
+                        <option value="1971">1971</option>
+                        <option value="1970">1970</option>
+                        <option value="1969">1969</option>
+                        <option value="1968">1968</option>
+                        <option value="1967">1967</option>
+                        <option value="1966">1966</option>
+                        <option value="1965">1965</option>
+                        <option value="1964">1964</option>
+                        <option value="1963">1963</option>
+                        <option value="1962">1962</option>
+                        <option value="1961">1961</option>
+                        <option value="1960">1960</option>
+                        <option value="1959">1959</option>
+                        <option value="1958">1958</option>
+                        <option value="1957">1957</option>
+                        <option value="1956">1956</option>
+                        <option value="1955">1955</option>
+                        <option value="1954">1954</option>
+                        <option value="1953">1953</option>
+                        <option value="1952">1952</option>
+                        <option value="1951">1951</option>
+                        <option value="1950">1950</option>
+                    </select>
+                    <select id="month">
+                        <option value="">月</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select id="day">
+                        <option value="">日</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+                
+                <!-- 年龄提示 -->
+                <div id="ageNotice" style="display: none; background: #fff3cd; border: 1px solid #ffc107; padding: 12px 16px; margin-top: 16px; font-size: 13px; color: #856404; text-align: left;">
+                </div>
+                
+                <div class="agreement-section">
+                    <div class="agreement-checkbox">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">
+                            我已阅读并同意
+                            <a href="https://static.coze.site/7626697924252008744-data_volume/files/%E6%89%80%E6%9C%89%E5%AF%B9%E8%AF%9D/%E4%B8%BB%E5%AF%B9%E8%AF%9D/%E4%BE%9D%E6%81%8B%E5%9E%8B%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95.html?sign=1779196484-bb0de7b841-0-6d97c4cacc40f71f9c083515bd531da3e9e2bf04f82512c977bb1afa21919deb#" id="disclaimerLink">《测试说明》</a>、
+                            <a href="https://static.coze.site/7626697924252008744-data_volume/files/%E6%89%80%E6%9C%89%E5%AF%B9%E8%AF%9D/%E4%B8%BB%E5%AF%B9%E8%AF%9D/%E4%BE%9D%E6%81%8B%E5%9E%8B%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95.html?sign=1779196484-bb0de7b841-0-6d97c4cacc40f71f9c083515bd531da3e9e2bf04f82512c977bb1afa21919deb#" id="privacyLink">《隐私政策》</a>和
+                            <a href="https://static.coze.site/7626697924252008744-data_volume/files/%E6%89%80%E6%9C%89%E5%AF%B9%E8%AF%9D/%E4%B8%BB%E5%AF%B9%E8%AF%9D/%E4%BE%9D%E6%81%8B%E5%9E%8B%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95.html?sign=1779196484-bb0de7b841-0-6d97c4cacc40f71f9c083515bd531da3e9e2bf04f82512c977bb1afa21919deb#" id="termsLink">《用户协议》</a>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="start-btn" id="startBtn">开始评估</button>
+                <p class="privacy-note">🔒 所有数据仅在本地浏览器处理，不会上传至服务器</p>
+            </div>
+        </div>
+
+        <!-- 测试页面 -->
+        <div class="test-screen" id="testScreen">
+            <div class="progress-bar">
+                <div class="progress-info">
+                    <span class="progress-text">进度</span>
+                    <span class="progress-number" id="progressNumber">1/24</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill" style="width: 4.17%"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <span class="question-number" id="questionCategory">第 1 题</span>
+                <p class="question-text" id="questionText"></p>
+                
+                <div class="options-container" id="optionsContainer"></div>
+
+                <div class="navigation">
+                    <button class="nav-btn prev" id="prevBtn">上一题</button>
+                    <button class="nav-btn next" id="nextBtn">下一题</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 结果页面 -->
+        <div class="result-screen" id="resultScreen">
+            <div class="result-header">
+                <h2 class="result-title">您的评估结果</h2>
+                <p class="result-subtitle" id="resultDate"></p>
+            </div>
+
+            <div class="result-disclaimer">
+                <h4>📋 结果说明</h4>
+                <p>本测试结果仅供参考，不能替代专业心理咨询或医学诊断。依恋类型的形成受到多种因素影响。</p>
+            </div>
+
+            <div class="result-main-card fade-in">
+                <div class="main-type">
+                    <div class="main-type-icon" id="mainTypeIcon"></div>
+                    <div class="main-type-name" id="mainTypeName">安全型</div>
+                    <div class="main-type-percent" id="mainTypePercent">匹配度 75%</div>
+                </div>
+                <p class="type-description" id="typeDescription"></p>
+            </div>
+
+            <div class="professional-advice fade-in" style="animation-delay: 0.05s">
+                <h3>💡 专业建议</h3>
+                <p>依恋类型并非固定不变，它会随着个人成长、关系经历和自我反思而发展变化。</p>
+                <div class="hotline">
+                    <strong>温馨提示：</strong>如果您正经历严重的心理困扰，请及时寻求专业帮助。
+                </div>
+            </div>
+
+            <div class="chart-section fade-in" style="animation-delay: 0.1s">
+                <h3 class="chart-title">四种依恋类型得分对比</h3>
+                <div class="bar-chart" id="barChart"></div>
+            </div>
+
+            <div class="chart-section fade-in" style="animation-delay: 0.2s">
+                <h3 class="chart-title">维度分析</h3>
+                <canvas id="radarChart" class="radar-chart-container"></canvas>
+            </div>
+
+            <div class="dimension-analysis fade-in" style="animation-delay: 0.3s" id="dimensionAnalysis"></div>
+
+            <div class="suggestion-card fade-in" style="animation-delay: 0.4s">
+                <h3 class="suggestion-title">成长建议</h3>
+                <ul class="suggestion-list" id="suggestionList"></ul>
+            </div>
+
+            <!-- 捐赠支持 -->
+            <div class="donate-card fade-in" style="animation-delay: 0.5s">
+                <h3 class="donate-title">🍊 支持开发者</h3>
+                <p class="donate-desc">本测试完全免费，如果您觉得有帮助，欢迎请我吃个🍊</p>
+                <div class="donate-methods">
+                    <div class="donate-method" style="margin: 0 auto;">
+                        <div class="donate-qrcode" id="alipayQr" onclick="showQRModal()">
+                            <img src="data:image/jpeg;base64,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" alt="支付宝收款码" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
+                        </div>
+                        <span>支付宝</span>
+                    </div>
+                </div>
+                <p class="donate-note">您的支持是我持续优化的动力 ❤️</p>
+            </div>
+
+            <button class="restart-btn" id="restartBtn">重新评估</button>
+            
+            <!-- 献词 -->
+            <div class="dedication-card fade-in" style="animation-delay: 0.6s">
+                <p class="dedication-text">
+                    谨以此网站，献给所有在亲密关系中迷茫的人，<br>
+                    献给那个让我在亲密关系中学会认识自己的🍊，<br>
+                    献给那个想要认识自己的你。
+                </p>
+            </div>
+            
+            <div class="footer-note">
+                <div>基于Bowlby依恋理论 · ECR-R量表改编</div>
+                <div style="margin-top: 8px; color: #bbb;">
+                    本测试仅供参考，不作为专业诊断依据
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 欢迎弹窗 -->
+    <div class="modal-overlay" id="welcomeModal" style="z-index: 2000;">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>🍊 欢迎来到依恋型评估网站</h2>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 30px 24px;">
+                <p style="font-size: 16px; color: #333; margin-bottom: 16px;">
+                    <strong>本网站完全免费</strong>
+                </p>
+                <p style="font-size: 14px; color: #666; margin-bottom: 12px;">
+                    ✓ 所有功能均可免费使用
+                </p>
+                <p style="font-size: 14px; color: #666; margin-bottom: 12px;">
+                    ✓ 结果页捐赠入口为自愿行为
+                </p>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                    ✓ 捐赠不影响任何网站功能
+                </p>
+                <p style="font-size: 13px; color: #999;">
+                    感谢您的信任与支持 ❤️
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="welcomeOk">我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 免责声明弹窗 -->
+    <div class="modal-overlay" id="disclaimerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>测试说明与免责声明</h2>
+                <button class="modal-close" id="disclaimerClose">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>一、测试目的</h3>
+                <p>本测试旨在帮助用户了解自己在亲密关系中的基本依恋模式，作为自我探索和成长的参考工具。</p>
+                
+                <h3>二、理论基础</h3>
+                <p>本测试基于John Bowlby提出的依恋理论，并参考ECR-R量表进行改编。</p>
+                <p>测试评估两个核心维度：</p>
+                <ul>
+                    <li><strong>依恋焦虑</strong>：对被抛弃的担忧和对亲密关系的不安全感</li>
+                    <li><strong>依恋回避</strong>：对依赖他人和亲密感的抗拒</li>
+                </ul>
+                <p>根据这两个维度的高低组合，形成四种依恋类型：安全型、焦虑型、回避型和恐惧型。</p>
+                
+                <h3>三、重要声明</h3>
+                <ul>
+                    <li>本测试结果仅供参考，不能替代专业的心理咨询或医学诊断</li>
+                    <li>依恋类型的形成受多种因素影响，测试结果具有局限性</li>
+                    <li>如果您正在经历严重的心理困扰，请寻求专业帮助</li>
+                </ul>
+                
+                <h3>四、年龄限制</h3>
+                <p>本测试建议18周岁及以上的成年人参与。</p>
+                
+                <h3>五、局限性说明</h3>
+                <p>1. 自我报告的局限性：测试结果依赖于用户的自我感知</p>
+                <p>2. 文化差异：依恋风格的表现可能因文化背景而有所不同</p>
+                <p>3. 状态与特质：测试结果可能受到当前情绪状态的影响</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="disclaimerOk">我已阅读</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐私政策弹窗 -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>隐私政策</h2>
+                <button class="modal-close" id="privacyClose">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>一、信息收集</h3>
+                <p>我们仅收集您主动输入的以下信息：</p>
+                <ul>
+                    <li><strong>出生日期</strong>：用于记录测试时间</li>
+                    <li><strong>测试答案</strong>：您对各题目的选择</li>
+                    <li><strong>测试结果</strong>：基于您的答案计算得出的依恋类型评估</li>
+                </ul>
+                <p>我们不会收集您的姓名、联系方式、IP地址或其他可识别个人身份的信息。</p>
+                
+                <h3>二、数据存储</h3>
+                <p>所有收集的数据均存储在您浏览器的本地存储中（localStorage）：</p>
+                <ul>
+                    <li>数据不会上传至任何服务器</li>
+                    <li>数据不会在设备之间同步</li>
+                    <li>关闭浏览器后数据仍会保留</li>
+                </ul>
+                
+                <h3>三、数据用途</h3>
+                <p>收集的数据仅用于：</p>
+                <ul>
+                    <li>生成您的个人测试结果</li>
+                    <li>提供个性化的成长建议</li>
+                </ul>
+                
+                <h3>四、数据保护</h3>
+                <p>由于数据完全存储在本地，我们无法对本地数据的安全负责。请您定期清理浏览器缓存。</p>
+                
+                <h3>五、第三方服务</h3>
+                <p>本测试不集成任何第三方分析、统计或广告服务。</p>
+                
+                <h3>六、联系我们</h3>
+                <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
+                <p>邮箱：3960234050@qq.com（请替换为实际邮箱）</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="privacyOk">我已阅读</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户协议弹窗 -->
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>用户协议</h2>
+                <button class="modal-close" id="termsClose">×</button>
+            </div>
+            <div class="modal-body">
+                <h3>一、服务说明</h3>
+                <p>依恋类型评估是一项<strong>完全免费</strong>的心理测评工具，旨在帮助用户了解自己的依恋模式。我们不收取任何测试费用。</p>
+                
+                <h3>二、捐赠说明</h3>
+                <p>本服务完全免费，所有功能均可免费使用。结果页面提供的捐赠入口为自愿行为，不构成任何服务购买关系。</p>
+                <ul>
+                    <li>捐赠完全自愿，不影响测试功能</li>
+                    <li>捐赠金额由您自行决定</li>
+                    <li>捐赠用于支持项目持续运营和优化</li>
+                </ul>
+                
+                <h3>三、使用条件</h3>
+                <p>在使用本服务之前，您同意：</p>
+                <ul>
+                    <li>您已年满18周岁，或在监护人陪同下使用</li>
+                    <li>您理解并接受测试结果的局限性</li>
+                    <li>您不会将测试结果用于专业医疗或法律目的</li>
+                </ul>
+                
+                <h3>四、免责声明</h3>
+                <ul>
+                    <li>测试结果仅供参考，不构成任何医疗或心理建议</li>
+                    <li>我们不对测试结果的准确性、可靠性承担任何责任</li>
+                    <li>如果您正在经历心理困扰，请寻求专业帮助</li>
+                </ul>
+                
+                <h3>五、知识产权</h3>
+                <p>本测试基于Bowlby依恋理论和ECR-R量表改编开发。</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="termsOk">我已阅读</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">请先选择答案</div>
+
+    <script>
+        // ========== 成功模式：年月日和协议检查 ==========
+        function check() {
+            var y = document.getElementById('year').value;
+            var m = document.getElementById('month').value;
+            var d = document.getElementById('day').value;
+            var a = document.getElementById('agree').checked;
+            var btn = document.getElementById('startBtn');
+            var ageNotice = document.getElementById('ageNotice');
+            
+            // 检查是否已选择完整日期
+            if (y && m && d) {
+                // 计算年龄
+                var birthDate = new Date(y, m - 1, d);
+                var today = new Date();
+                var age = today.getFullYear() - birthDate.getFullYear();
+                var monthDiff = today.getMonth() - birthDate.getMonth();
+                
+                // 如果生日还没到，年龄减1
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                
+                // 判断是否满18岁
+                if (age < 18) {
+                    // 未满18岁
+                    btn.className = 'start-btn';
+                    ageNotice.style.display = 'block';
+                    ageNotice.innerHTML = '⚠️ 您当前未满18周岁，本测试建议成年人参与。未成年人请在监护人陪同下进行。';
+                    return;
+                } else {
+                    // 已满18岁
+                    ageNotice.style.display = 'none';
+                }
+            } else {
+                ageNotice.style.display = 'none';
+            }
+            
+            // 检查是否可以开始测试
+            if (y && m && d && a) {
+                btn.className = 'start-btn active';
+            } else {
+                btn.className = 'start-btn';
+            }
+        }
+        
+        document.getElementById('year').onchange = check;
+        document.getElementById('month').onchange = check;
+        document.getElementById('day').onchange = check;
+        document.getElementById('agree').onchange = check;
+
+        // 弹窗功能
+        function openModal(type) {
+            document.getElementById(type + 'Modal').className = 'modal-overlay show';
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').className = 'modal-overlay';
+        }
+
+        // 欢迎弹窗关闭
+        document.getElementById('welcomeOk').onclick = function() { 
+            closeModal('welcome'); 
+        };
+
+        // 弹窗绑定
+        document.getElementById('disclaimerLink').onclick = function() { openModal('disclaimer'); return false; };
+        document.getElementById('privacyLink').onclick = function() { openModal('privacy'); return false; };
+        document.getElementById('termsLink').onclick = function() { openModal('terms'); return false; };
+        document.getElementById('disclaimerClose').onclick = function() { closeModal('disclaimer'); };
+        document.getElementById('disclaimerOk').onclick = function() { closeModal('disclaimer'); };
+        document.getElementById('privacyClose').onclick = function() { closeModal('privacy'); };
+        document.getElementById('privacyOk').onclick = function() { closeModal('privacy'); };
+        document.getElementById('termsClose').onclick = function() { closeModal('terms'); };
+        document.getElementById('termsOk').onclick = function() { closeModal('terms'); };
+
+        // 5级Likert量表选项
+        var likertOptions = [
+            { text: '很不符合', score: 1 },
+            { text: '较不符合', score: 2 },
+            { text: '符合', score: 3 },
+            { text: '较符合', score: 4 },
+            { text: '很符合', score: 5 }
+        ];
+
+        // 测试题目数据
+        var questions = [
+            { text: "我常常担心伴侣可能不是真的爱我", dimension: "anxiety", reverse: false },
+            { text: "我害怕被伴侣抛弃", dimension: "anxiety", reverse: false },
+            { text: "当伴侣对我表达情感时，我会感到不安", dimension: "anxiety", reverse: false },
+            { text: "我经常担心我们的关系不会长久", dimension: "anxiety", reverse: false },
+            { text: "当伴侣离开一会儿时，我会担心他/她可能对别人产生兴趣", dimension: "anxiety", reverse: false },
+            { text: "在与伴侣发生争执时，我常常感到我们会分手", dimension: "anxiety", reverse: false },
+            { text: "我倾向于不依赖他人", dimension: "avoidance", reverse: false },
+            { text: "我更愿意独自做事，不愿依赖他人", dimension: "avoidance", reverse: false },
+            { text: "向伴侣敞开心扉会让我感到不舒服", dimension: "avoidance", reverse: false },
+            { text: "我不习惯与伴侣过于亲近", dimension: "avoidance", reverse: false },
+            { text: "当伴侣对我过于亲密时，我会想退缩", dimension: "avoidance", reverse: false },
+            { text: "我更倾向于把情感藏在心里", dimension: "avoidance", reverse: false },
+            { text: "我很少担心被伴侣抛弃", dimension: "anxiety", reverse: true },
+            { text: "我很少担心伴侣不爱我", dimension: "anxiety", reverse: true },
+            { text: "我很少因为伴侣的行为而感到不安", dimension: "anxiety", reverse: true },
+            { text: "我能够舒适地依赖伴侣", dimension: "avoidance", reverse: true },
+            { text: "向伴侣寻求安慰和支持对我来说很容易", dimension: "avoidance", reverse: true },
+            { text: "我能够自然地与伴侣分享我的感受和想法", dimension: "avoidance", reverse: true },
+            { text: "我能够依靠伴侣帮我度过困难时期", dimension: "avoidance", reverse: true },
+            { text: "我享受与伴侣之间的亲密感", dimension: "avoidance", reverse: true },
+            { text: "当需要帮助时，我会自然而然地寻求伴侣的支持", dimension: "avoidance", reverse: true },
+            { text: "我既渴望亲密又害怕被伤害", dimension: "mixed_anxiety", reverse: false },
+            { text: "我渴望亲密关系，但同时保持警惕", dimension: "mixed_anxiety", reverse: false },
+            { text: "我发现自己时而渴望亲近，时而又想保持距离", dimension: "mixed_anxiety", reverse: false },
+            { text: "我相信自己值得被爱，也相信他人有能力爱我", dimension: "secure", reverse: true }
+        ];
+
+        // 依恋类型数据 - 现代简约风格图标
+        var attachmentTypes = {
+            secure: {
+                name: "安全型",
+                icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 两个相互连接的人形，温暖的色调 -->
+                    <circle cx="28" cy="24" r="10" fill="#8B9DC3" fill-opacity="0.9"/>
+                    <path d="M16 52c0-8 5-14 12-14s12 6 12 14" stroke="#8B9DC3" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="52" cy="24" r="10" fill="#8B9DC3" fill-opacity="0.9"/>
+                    <path d="M40 52c0-8 5-14 12-14s12 6 12 14" stroke="#8B9DC3" stroke-width="4" stroke-linecap="round"/>
+                    <!-- 连接弧线 -->
+                    <path d="M22 44c10 8 26 8 36 0" stroke="#B8C5E2" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 4"/>
+                    <!-- 小爱心点缀 -->
+                    <path d="M40 32c-1.5-1.5-4-1.5-4 1s2.5 4 4 5c1.5-1 4-3 4-5s-2.5-2.5-4-1z" fill="#D4A5A5"/>
+                </svg>`,
+                description: "您表现出安全型依恋模式。您能够健康地处理亲密关系，既能享受与伴侣的亲密时光，也能保持自我的独立性。您对他人的信任度适中，能够开放地表达情感和需求。"
+            },
+            anxious: {
+                name: "焦虑型",
+                icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 波浪线条代表内心波动 -->
+                    <path d="M12 40c6-12 16-12 22 0s16 12 22 0 16-12 22 0" stroke="#D4A5A5" stroke-width="3" stroke-linecap="round"/>
+                    <!-- 跳动的心 -->
+                    <path d="M40 20c-8-8-20-4-20 8 0 0-8 18 12 28 3-2 8-6 8-12 0-4 0-8 0-12 0-8-8-12-20-8 0 0 8-4 20-4z" fill="#E8C4C4" stroke="#C9929A" stroke-width="2"/>
+                    <!-- 问号元素 -->
+                    <text x="62" y="22" font-family="Arial" font-size="14" font-weight="600" fill="#C9929A">?</text>
+                    <!-- 强调点 -->
+                    <circle cx="12" cy="40" r="3" fill="#D4A5A5"/>
+                    <circle cx="68" cy="40" r="3" fill="#D4A5A5"/>
+                </svg>`,
+                description: "您表现出焦虑型依恋模式。您渴望亲密和联系，对伴侣的需求较高，容易感到不安全并担心被抛弃。您可能经常需要伴侣的确认和安抚。"
+            },
+            avoidant: {
+                name: "回避型",
+                icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 向外发散的人形轮廓 -->
+                    <circle cx="26" cy="26" r="8" fill="#A8B5C4" fill-opacity="0.8"/>
+                    <path d="M14 50c0-7 5-12 12-12s12 5 12 12" stroke="#A8B5C4" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="54" cy="26" r="8" fill="#A8B5C4" fill-opacity="0.8"/>
+                    <path d="M42 50c0-7 5-12 12-12s12 5 12 12" stroke="#A8B5C4" stroke-width="3" stroke-linecap="round"/>
+                    <!-- 向外箭头 -->
+                    <path d="M8 36L4 30M8 36L12 30" stroke="#B8C5D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M72 36L76 30M72 36L68 30" stroke="#B8C5D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- 分隔线 -->
+                    <line x1="40" y1="30" x2="40" y2="60" stroke="#D0D8E0" stroke-width="2" stroke-dasharray="4 3"/>
+                </svg>`,
+                description: "您表现出回避型依恋模式。您重视独立和自主，倾向于与他人保持情感距离。您可能觉得依赖他人是不必要的，更倾向于独自处理问题。"
+            },
+            fearful: {
+                name: "恐惧型",
+                icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 分裂的心 -->
+                    <path d="M40 18c-6-6-14-4-16 6 0 0-4 12 6 20 6 5 10 10 10 18 0 0 0 6 0 8 4-2 8-6 8-10 0-4-2-8-4-12 2-2 4-6 4-10 0-6-4-12-8-16-2-2-2-4-2-8 0-4 2-6-2-8z" fill="#C9B8C9" fill-opacity="0.6" stroke="#9D8AA0" stroke-width="2"/>
+                    <path d="M40 18c6-6 14-4 16 6 0 0 4 12-6 20-6 5-10 10-10 18 0 0 0 6 0 8-4-2-8-6-8-10 0-4 2-8 4-12-2-2-4-6-4-10 0-6 4-12 8-16 2-2 2-4 2-8 0-4-2-6 2-8z" fill="#B8C9C9" fill-opacity="0.6" stroke="#8A9D9D" stroke-width="2"/>
+                    <!-- 裂缝 -->
+                    <path d="M40 18v44" stroke="#888" stroke-width="2" stroke-dasharray="3 2"/>
+                    <!-- 矛盾符号 -->
+                    <path d="M28 68l6-6M40 68l-6-6" stroke="#9D8AA0" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M40 68l6-6M52 68l-6-6" stroke="#8A9D9D" stroke-width="2" stroke-linecap="round"/>
+                </svg>`,
+                description: "您表现出恐惧型依恋模式。您内心渴望亲密，但同时又害怕被伤害和被拒绝。这种矛盾让您时而靠近、时而推开，形成了一种复杂的情感模式。"
+            }
+        };
+
+        // 状态变量
+        var currentQuestion = 0;
+        var answers = [];
+        var birthDate = { year: '', month: '', day: '' };
+
+        // 初始化答案数组
+        for (var i = 0; i < questions.length; i++) {
+            answers[i] = null;
+        }
+
+        function showToast(message) {
+            var toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show';
+            setTimeout(function() {
+                toast.className = 'toast';
+            }, 2000);
+        }
+
+        function validateBirthDate() {
+            var year = document.getElementById('year').value;
+            var month = document.getElementById('month').value;
+            var day = document.getElementById('day').value;
+            
+            if (!year || !month || !day) {
+                showToast('请完整填写出生日期');
+                return false;
+            }
+            return true;
+        }
+
+        function startTest() {
+            var btn = document.getElementById('startBtn');
+            if (btn.className.indexOf('active') === -1) {
+                showToast('请先完成出生日期并同意用户协议');
+                return;
+            }
+            
+            if (!validateBirthDate()) return;
+            
+            birthDate.year = document.getElementById('year').value;
+            birthDate.month = document.getElementById('month').value;
+            birthDate.day = document.getElementById('day').value;
+            
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('testScreen').style.display = 'flex';
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            var q = questions[currentQuestion];
+            document.getElementById('questionCategory').textContent = '第 ' + (currentQuestion + 1) + ' 题';
+            document.getElementById('questionText').textContent = q.text;
+            document.getElementById('progressNumber').textContent = (currentQuestion + 1) + '/' + questions.length;
+            document.getElementById('progressFill').style.width = (((currentQuestion + 1) / questions.length) * 100) + '%';
+
+            var optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            for (var i = 0; i < likertOptions.length; i++) {
+                var option = likertOptions[i];
+                var btn = document.createElement('button');
+                btn.className = 'option-btn' + (answers[currentQuestion] === i ? ' selected' : '');
+                btn.onclick = (function(index) {
+                    return function() { selectOption(index); };
+                })(i);
+                btn.innerHTML = 
+                    '<span class="option-radio"></span>' +
+                    '<span class="option-text">' + option.text + '</span>' +
+                    '<span class="option-score">' + option.score + '分</span>';
+                optionsContainer.appendChild(btn);
+            }
+
+            var prevBtn = document.getElementById('prevBtn');
+            prevBtn.disabled = (currentQuestion === 0);
+            updateNextButton();
+        }
+
+        function selectOption(index) {
+            answers[currentQuestion] = index;
+            var options = document.querySelectorAll('.option-btn');
+            for (var i = 0; i < options.length; i++) {
+                options[i].className = 'option-btn' + (i === index ? ' selected' : '');
+            }
+            updateNextButton();
+
+            if (currentQuestion < questions.length - 1) {
+                setTimeout(function() {
+                    if (answers[currentQuestion] !== null) {
+                        nextQuestion();
+                    }
+                }, 200);
+            }
+        }
+
+        function updateNextButton() {
+            var nextBtn = document.getElementById('nextBtn');
+            if (currentQuestion >= questions.length - 1) {
+                nextBtn.textContent = '查看结果';
+                nextBtn.className = 'nav-btn next submit';
+            } else {
+                nextBtn.textContent = '下一题';
+                nextBtn.className = 'nav-btn next';
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (answers[currentQuestion] === null) {
+                showToast('请先选择答案');
+                return;
+            }
+
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function calculateResults() {
+            var anxietyScore = 0;
+            var avoidanceScore = 0;
+            var anxietyCount = 0;
+            var avoidanceCount = 0;
+
+            for (var i = 0; i < questions.length; i++) {
+                if (answers[i] !== null) {
+                    var score = likertOptions[answers[i]].score;
+                    
+                    if (questions[i].reverse) {
+                        score = 6 - score;
+                    }
+
+                    if (questions[i].dimension === 'anxiety' || questions[i].dimension === 'mixed_anxiety') {
+                        anxietyScore += score;
+                        anxietyCount++;
+                    }
+                    if (questions[i].dimension === 'avoidance' || questions[i].dimension === 'mixed_anxiety') {
+                        avoidanceScore += score;
+                        avoidanceCount++;
+                    }
+                    if (questions[i].dimension === 'secure') {
+                        avoidanceScore += score;
+                        avoidanceCount++;
+                    }
+                }
+            }
+
+            var anxietyAvg = anxietyCount > 0 ? anxietyScore / anxietyCount : 3;
+            var avoidanceAvg = avoidanceCount > 0 ? avoidanceScore / avoidanceCount : 3;
+
+            var anxietyLevel = ((anxietyAvg - 1) / 4) * 100;
+            var avoidanceLevel = ((avoidanceAvg - 1) / 4) * 100;
+            
+            var anxietyNorm = anxietyLevel / 100;
+            var avoidanceNorm = avoidanceLevel / 100;
+            var lowAnxiety = 1 - anxietyNorm;
+            var lowAvoidance = 1 - avoidanceNorm;
+
+            var scores = {
+                secure: lowAnxiety * lowAvoidance * 100,
+                anxious: anxietyNorm * lowAvoidance * 100,
+                avoidant: lowAnxiety * avoidanceNorm * 100,
+                fearful: anxietyNorm * avoidanceNorm * 100
+            };
+
+            var total = scores.secure + scores.anxious + scores.avoidant + scores.fearful;
+            if (total > 0) {
+                scores.secure = (scores.secure / total) * 100;
+                scores.anxious = (scores.anxious / total) * 100;
+                scores.avoidant = (scores.avoidant / total) * 100;
+                scores.fearful = (scores.fearful / total) * 100;
+            }
+
+            var mainType = 'secure';
+            var maxScore = 0;
+            var typeKeys = ['secure', 'anxious', 'avoidant', 'fearful'];
+            for (var j = 0; j < typeKeys.length; j++) {
+                var key = typeKeys[j];
+                if (scores[key] > maxScore) {
+                    maxScore = scores[key];
+                    mainType = key;
+                }
+            }
+
+            return {
+                scores: scores,
+                mainType: mainType,
+                anxietyLevel: Math.min(100, Math.max(0, anxietyLevel)),
+                avoidanceLevel: Math.min(100, Math.max(0, avoidanceLevel))
+            };
+        }
+
+        function showResults() {
+            document.getElementById('testScreen').style.display = 'none';
+            document.getElementById('resultScreen').style.display = 'flex';
+            
+            var results = calculateResults();
+            var type = attachmentTypes[results.mainType];
+
+            // 显示评估日期（当前日期）
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth() + 1;
+            var day = today.getDate();
+            document.getElementById('resultDate').textContent = 
+                '评估日期：' + year + '年' + month + '月' + day + '日';
+
+            document.getElementById('mainTypeIcon').innerHTML = type.icon;
+            document.getElementById('mainTypeName').textContent = type.name;
+            document.getElementById('mainTypePercent').textContent = 
+                '匹配度 ' + results.scores[results.mainType].toFixed(1) + '%';
+            document.getElementById('typeDescription').textContent = type.description;
+
+            renderBarChart(results.scores);
+            renderRadarChart(results.anxietyLevel, results.avoidanceLevel);
+            renderDimensionAnalysis(results.anxietyLevel, results.avoidanceLevel);
+            renderSuggestions(results.mainType, results.anxietyLevel, results.avoidanceLevel);
+        }
+
+        // 四种类型小图标SVG - 现代简约风格
+        var typeIcons = {
+            secure: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="7" r="3" fill="#8B9DC3"/>
+                <path d="M3 16c0-3 2-5 5-5s5 2 5 5" stroke="#8B9DC3" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="16" cy="7" r="3" fill="#8B9DC3"/>
+                <path d="M11 16c0-3 2-5 5-5s5 2 5 5" stroke="#8B9DC3" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 14c3 2 9 2 12 0" stroke="#B8C5E2" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>`,
+            anxious: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12c2-4 5-4 7 0s5 4 7 0 5-4 7 0" stroke="#D4A5A5" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M12 6c-2.5-2.5-6-1-6 2.5 0 0-2 5 3 8 1-.5 2.5-2 2.5-3.5 0-1 0-2.5 0-3.5 0-2.5-2-4-6-2.5 0 0 2.5-1 6-1z" fill="#E8C4C4" stroke="#C9929A" stroke-width="1"/>
+                <text x="18" y="6" font-family="Arial" font-size="5" font-weight="600" fill="#C9929A">?</text>
+            </svg>`,
+            avoidant: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="2.5" fill="#A8B5C4" fill-opacity="0.8"/>
+                <path d="M4 16c0-2.5 2-4.5 4-4.5s4 2 4 4.5" stroke="#A8B5C4" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="16" cy="8" r="2.5" fill="#A8B5C4" fill-opacity="0.8"/>
+                <path d="M12 16c0-2.5 2-4.5 4-4.5s4 2 4 4.5" stroke="#A8B5C4" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M2 11L1 9M22 11L23 9" stroke="#B8C5D2" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="12" y1="9" x2="12" y2="18" stroke="#D0D8E0" stroke-width="1" stroke-dasharray="2 1.5"/>
+            </svg>`,
+            fearful: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5c-2-2-4-1-5 2 0 0-1.5 4 2 6.5 2 1.5 3 3 3 5.5 0 0 0 2 0 2.5 1.5-.5 2.5-2 2.5-3 0-1.5-1-2.5-1.5-4 .5-.5 1.5-2 1.5-3 0-2-1-4-2.5-5-.5-.5-.5-1.5-.5-2.5 0-1.5.5-2-.5-2.5z" fill="#C9B8C9" fill-opacity="0.6" stroke="#9D8AA0" stroke-width="1"/>
+                <path d="M12 5c2-2 4-1 5 2 0 0 1.5 4-2 6.5-2 1.5-3 3-3 5.5 0 0 0 2 0 2.5-1.5-.5-2.5-2-2.5-3 0-1.5 1-2.5 1.5-4-.5-.5-1.5-2-1.5-3 0-2 1-4 2.5-5 .5-.5.5-1.5.5-2.5 0-1.5-.5-2 .5-2.5z" fill="#B8C9C9" fill-opacity="0.6" stroke="#8A9D9D" stroke-width="1"/>
+                <path d="M12 5v14" stroke="#888" stroke-width="1" stroke-dasharray="1.5 1"/>
+            </svg>`
+        };
+
+        function renderBarChart(scores) {
+            var container = document.getElementById('barChart');
+            container.innerHTML = '';
+
+            var typeOrder = ['secure', 'anxious', 'avoidant', 'fearful'];
+            var labels = { secure: '安全型', anxious: '焦虑型', avoidant: '回避型', fearful: '恐惧型' };
+
+            for (var i = 0; i < typeOrder.length; i++) {
+                var type = typeOrder[i];
+                var item = document.createElement('div');
+                item.className = 'bar-item';
+                item.innerHTML = 
+                    '<div class="bar-label-wrapper">' +
+                    '<span class="type-icon-small">' + typeIcons[type] + '</span>' +
+                    '<span class="bar-label">' + labels[type] + '</span>' +
+                    '</div>' +
+                    '<div class="bar-track">' +
+                    '<div class="bar-fill ' + type + '" style="width: 0%"></div>' +
+                    '</div>' +
+                    '<span class="bar-value">' + scores[type].toFixed(1) + '%</span>';
+                container.appendChild(item);
+
+                var fill = item.querySelector('.bar-fill');
+                setTimeout((function(f, w) {
+                    return function() { f.style.width = w + '%'; };
+                })(fill, scores[type]), 100);
+            }
+        }
+
+        function renderRadarChart(anxiety, avoidance) {
+            var canvas = document.getElementById('radarChart');
+            var ctx = canvas.getContext('2d');
+            
+            var rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * 2;
+            canvas.height = rect.height * 2;
+            ctx.scale(2, 2);
+
+            var centerX = rect.width / 2;
+            var centerY = rect.height / 2;
+            var radius = Math.min(centerX, centerY) - 45;
+
+            ctx.clearRect(0, 0, rect.width, rect.height);
+
+            var levels = 5;
+            for (var i = 1; i <= levels; i++) {
+                var r = (radius / levels) * i;
+                
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
+                ctx.strokeStyle = i === levels ? '#8B9DC3' : '#eee';
+                ctx.lineWidth = i === levels ? 1.5 : 1;
+                ctx.stroke();
+
+                for (var j = 0; j < 4; j++) {
+                    var angle = (Math.PI * 2 / 4) * j - Math.PI / 2;
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.lineTo(centerX + Math.cos(angle) * r, centerY + Math.sin(angle) * r);
+                    ctx.strokeStyle = '#eee';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+
+            var dataPoints = [
+                { value: 100 - anxiety, angle: -Math.PI / 2 },
+                { value: 100 - avoidance, angle: 0 },
+                { value: anxiety, angle: Math.PI / 2 },
+                { value: avoidance, angle: Math.PI }
+            ];
+
+            ctx.beginPath();
+            for (var k = 0; k < dataPoints.length; k++) {
+                var point = dataPoints[k];
+                var r = (radius * point.value) / 100;
+                var x = centerX + Math.cos(point.angle) * r;
+                var y = centerY + Math.sin(point.angle) * r;
+                if (k === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.closePath();
+            
+            ctx.fillStyle = 'rgba(139, 157, 195, 0.2)';
+            ctx.fill();
+            
+            ctx.strokeStyle = '#8B9DC3';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            for (var m = 0; m < dataPoints.length; m++) {
+                var pt = dataPoints[m];
+                var pr = (radius * pt.value) / 100;
+                var px = centerX + Math.cos(pt.angle) * pr;
+                var py = centerY + Math.sin(pt.angle) * pr;
+                
+                ctx.beginPath();
+                ctx.arc(px, py, 5, 0, Math.PI * 2);
+                ctx.fillStyle = '#8B9DC3';
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.arc(px, py, 5, 0, Math.PI * 2);
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+
+            ctx.font = '12px PingFang SC, Microsoft YaHei';
+            ctx.fillStyle = '#666';
+            ctx.textAlign = 'center';
+            
+            var labelRadius = radius + 22;
+            var labelData = [
+                { text: '低焦虑', angle: -Math.PI / 2, y: -8 },
+                { text: '低回避', angle: 0, y: 14 },
+                { text: '高焦虑', angle: Math.PI / 2, y: 10 },
+                { text: '高回避', angle: Math.PI, y: 14 }
+            ];
+
+            for (var n = 0; n < labelData.length; n++) {
+                var lbl = labelData[n];
+                var lx = centerX + Math.cos(lbl.angle) * labelRadius;
+                var ly = centerY + Math.sin(lbl.angle) * labelRadius + lbl.y;
+                ctx.fillText(lbl.text, lx, ly);
+            }
+        }
+
+        function renderDimensionAnalysis(anxiety, avoidance) {
+            var container = document.getElementById('dimensionAnalysis');
+            
+            var anxietyLevel = anxiety > 50 ? '高' : '低';
+            var avoidanceLevel = avoidance > 50 ? '高' : '低';
+            
+            var anxietyDesc = anxiety > 50 
+                ? '您对亲密关系中的不确定性感较高，容易担心被抛弃或不被爱。'
+                : '您对关系的稳定性有较强的信心，不容易产生过度焦虑。';
+            
+            var avoidanceDesc = avoidance > 50 
+                ? '您在关系中倾向于保持独立，可能对亲密感到不适。'
+                : '您能够舒适地与他人亲近，在亲密和独立之间有较好的平衡。';
+
+            container.innerHTML = 
+                '<div class="dimension-item">' +
+                '<div class="dimension-header">' +
+                '<span class="dimension-name">依恋焦虑维度</span>' +
+                '<span class="dimension-level level-' + (anxiety > 50 ? 'high' : 'low') + '">' + anxietyLevel + '焦虑</span>' +
+                '</div>' +
+                '<div class="dimension-bar">' +
+                '<div class="dimension-fill anxiety" style="width: ' + anxiety + '%"></div>' +
+                '</div>' +
+                '<p class="dimension-desc">' + anxietyDesc + '</p>' +
+                '</div>' +
+                '<div class="dimension-item">' +
+                '<div class="dimension-header">' +
+                '<span class="dimension-name">依恋回避维度</span>' +
+                '<span class="dimension-level level-' + (avoidance > 50 ? 'high' : 'low') + '">' + avoidanceLevel + '回避</span>' +
+                '</div>' +
+                '<div class="dimension-bar">' +
+                '<div class="dimension-fill avoidance" style="width: ' + avoidance + '%"></div>' +
+                '</div>' +
+                '<p class="dimension-desc">' + avoidanceDesc + '</p>' +
+                '</div>';
+        }
+
+        function renderSuggestions(mainType, anxiety, avoidance) {
+            var container = document.getElementById('suggestionList');
+            var suggestions = [];
+
+            if (mainType === 'secure') {
+                suggestions = [
+                    '继续保持您健康的依恋模式，在关系中保持开放和信任的态度',
+                    '当遇到压力时，运用您良好的沟通技巧来处理冲突',
+                    '帮助您的伴侣理解您的需求和边界'
+                ];
+            } else if (mainType === 'anxious') {
+                suggestions = [
+                    '尝试发展独立的兴趣爱好，减少对伴侣的过度依赖',
+                    '练习自我安抚技巧，在感到焦虑时给自己一些空间',
+                    '与伴侣坦诚沟通您的需求，同时也倾听对方的感受',
+                    '建立安全的自我认同，不要把全部价值感寄托在关系上'
+                ];
+            } else if (mainType === 'avoidant') {
+                suggestions = [
+                    '尝试逐步打开心扉，从分享小感受开始练习',
+                    '认识到保持距离可能是一种保护机制，尝试理解其根源',
+                    '在安全的关系中练习信任，允许自己依赖他人'
+                ];
+            } else if (mainType === 'fearful') {
+                suggestions = [
+                    '理解自己在关系中的矛盾感受，这是改变的第一步',
+                    '在安全的关系中练习逐步敞开心扉',
+                    '学会识别自己的情绪反应模式，尝试在冲动时暂停',
+                    '考虑寻求专业心理咨询的帮助来处理深层的不安全感'
+                ];
+            }
+
+            var html = '';
+            for (var i = 0; i < suggestions.length; i++) {
+                html += '<li>' + suggestions[i] + '</li>';
+            }
+            container.innerHTML = html;
+        }
+
+        function restartTest() {
+            currentQuestion = 0;
+            for (var i = 0; i < questions.length; i++) {
+                answers[i] = null;
+            }
+            
+            document.getElementById('resultScreen').style.display = 'none';
+            document.getElementById('welcomeScreen').style.display = 'flex';
+        }
+
+        // 导航按钮绑定
+        document.getElementById('startBtn').onclick = startTest;
+        document.getElementById('prevBtn').onclick = prevQuestion;
+        document.getElementById('nextBtn').onclick = nextQuestion;
+        document.getElementById('restartBtn').onclick = restartTest;
+    </script>
+
+<!-- 图片放大模态框 -->
+<div class="modal-overlay" id="qrModal" onclick="hideQRModal()">
+    <img class="modal-img" id="modalImg" src="https://static.coze.site/7626697924252008744-data_volume/files/%E6%89%80%E6%9C%89%E5%AF%B9%E8%AF%9D/%E4%B8%BB%E5%AF%B9%E8%AF%9D/%E4%BE%9D%E6%81%8B%E5%9E%8B%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95.html?sign=1779196484-bb0de7b841-0-6d97c4cacc40f71f9c083515bd531da3e9e2bf04f82512c977bb1afa21919deb" alt="收款码大图">
+</div>
+
+<script>
+function showQRModal() {
+    var modal = document.getElementById('qrModal');
+    var modalImg = document.getElementById('modalImg');
+    var qrImg = document.querySelector('#alipayQr img');
+    modalImg.src = qrImg.src;
+    modal.className = 'modal-overlay active';
+}
+
+function hideQRModal() {
+    var modal = document.getElementById('qrModal');
+    modal.className = 'modal-overlay';
+}
+</script>
+
+
+
+</body></html>
